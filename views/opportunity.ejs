@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title> HW3 : Express App </title>
+		<link href="/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<%- include('partials/nav.ejs') %>
+		<div class="title">
+			<h3>Opportunity</h3>
+		</div>
+		<div class="main">
+			<form action="/opportunity" oninput="sol_output.value=parseInt(sol.value)">
+				<div class="submit">	
+					<p><label for="sol">Sol: <output name="sol_output"><%= start_sol %></output></label></p>
+					<input type="range" name="sol" min="0" max="<%= manifest.max_sol %>" value="<%= start_sol %>">
+
+				
+					<button type="submit" name="submit">Show Images</button>
+					<span class="error"><%= errorMsg %></span>
+				</div>
+				
+				<div class="box">
+					<div class="btns">
+						<button type="submit" name="camera" value="FHAZ" <% if(!cameras.includes("FHAZ")) { %> disabled <% } %> >Front Hazard Avoidance Camera</button><br>
+						<button type="submit" name="camera" value="RHAZ" <% if(!cameras.includes("RHAZ")) { %> disabled <% } %> >Rear Hazard Avoidance Camera</button><br>
+						<button type="submit" name="camera" value="NAVCAM" <% if(!cameras.includes("NAVCAM")) { %> disabled <% } %> >Navigation Camera</button><br>
+						<button type="submit" name="camera" value="PANCAM" <% if(!cameras.includes("PANCAM")) { %> disabled <% } %> >Panoramic Camera</button><br>
+						<button type="submit" name="camera" value="MINITIES" <% if(!cameras.includes("MINITIES")) { %> disabled <% } %> >Miniature Thermal Emission Spectrometer</button><br>
+					</div>
+   			
+			</form>
+							
+			<% if(photo != undefined) { %>
+				<div class="imageBox">
+					<img src="<%= photo.img_src %>" width="500px">
+					<%- include('partials/imgInfo.ejs') %>
+				</div>
+			<% } %>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title> HW3 : Express App </title>
+		<link href="/css/style.css" rel="stylesheet">
+	</head>
+	<body>
+		<%- include('partials/nav.ejs') %>
+		<div class="title">
+			<h3>Perseverance </h3>
+		</div>
+		<div class="main">
+			<form action="/perseverance " oninput="sol_output.value=parseInt(sol.value)">
+				<div class="submit">	
+					<p><label for="sol">Sol: <output name="sol_output"><%= start_sol %></output></label></p>
+					<input type="range" name="sol" min="0" max="<%= manifest.max_sol %>" value="<%= start_sol %>">
+
+				
+					<button type="submit" name="submit">Show Images</button>
+					<span class="error"><%= errorMsg %></span>
+				</div>
+				
+				<div class="box">
+					<div class="btns">
+						<button type="submit" name="camera" value="EDL_RUCAM" <% if(!cameras.includes("EDL_RUCAM")) { %> disabled <% } %> >Rover Up-Look Camera</button><br>
+						<button type="submit" name="camera" value="EDL_RDCAM" <% if(!cameras.includes("EDL_RDCAM")) { %> disabled <% } %> >Rover Down-Look Camera</button><br>
+						<button type="submit" name="camera" value="EDL_DDCAM" <% if(!cameras.includes("EDL_DDCAM")) { %> disabled <% } %> >Descent Stage Down-Look Camera</button><br>
+						<button type="submit" name="camera" value="EDL_PUCAM1" <% if(!cameras.includes("EDL_PUCAM1")) { %> disabled <% } %> >Parachute Up-Look Camera A</button><br>
+						<button type="submit" name="camera" value="EDL_PUCAM2" <% if(!cameras.includes("EDL_PUCAM2")) { %> disabled <% } %> >Parachute Up-Look Camera B</button><br>
+						<button type="submit" name="camera" value="NAVCAM_LEFT" <% if(!cameras.includes("NAVCAM_LEFT")) { %> disabled <% } %> >Navigation Camera - Left</button><br>
+						<button type="submit" name="camera" value="NAVCAM_RIGHT" <% if(!cameras.includes("NAVCAM_RIGHT")) { %> disabled <% } %> >Navigation Camera - Right</button><br>
+						<button type="submit" name="camera" value="MCZ_RIGHT" <% if(!cameras.includes("MCZ_RIGHT")) { %> disabled <% } %> >Mast Camera Zoom - Right</button><br>
+						<button type="submit" name="camera" value="MCZ_LEFT" <% if(!cameras.includes("MCZ_LEFT")) { %> disabled <% } %> >Mast Camera Zoom - Left</button><br>
+						<button type="submit" name="camera" value="FRONT_HAZCAM_LEFT_A" <% if(!cameras.includes("FRONT_HAZCAM_LEFT_A")) { %> disabled <% } %> >Front Hazard Avoidance Camera - Left</button><br>
+						<button type="submit" name="camera" value="FRONT_HAZCAM_RIGHT_A" <% if(!cameras.includes("FRONT_HAZCAM_RIGHT_A")) { %> disabled <% } %> >Front Hazard Avoidance Camera - Right</button><br>
+						<button type="submit" name="camera" value="REAR_HAZCAM_LEFT" <% if(!cameras.includes("REAR_HAZCAM_LEFT")) { %> disabled <% } %> >Rear Hazard Avoidance Camera - Left</button><br>
+						<button type="submit" name="camera" value="REAR_HAZCAM_RIGHT" <% if(!cameras.includes("REAR_HAZCAM_RIGHT")) { %> disabled <% } %> >Rear Hazard Avoidance Camera - Right</button><br>
+						<button type="submit" name="camera" value="SKYCAM" <% if(!cameras.includes("SKYCAM")) { %> disabled <% } %> >MEDA Skycam</button><br>
+						<button type="submit" name="camera" value="SHERLOC_WATSON" <% if(!cameras.includes("SHERLOC_WATSON")) { %> disabled <% } %> >SHERLOC WATSON Camera</button><br>
+					</div>
+   			
+			</form>
+							
+			<% if(photo != undefined) { %>
+				<div class="imageBox">
+					<img src="<%= photo.img_src %>" width="500px">
+					<%- include('partials/imgInfo.ejs') %>
+				</div>
+			<% } %>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

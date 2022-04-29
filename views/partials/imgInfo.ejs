@@ -1,0 +1,19 @@
+<div class="imgInfo">
+	<ul>
+		<li><span class="underline">mission status</span></li>
+		<li>rover-name: <%= photo.rover.name %></li>
+		<li>launch-date: <%= photo.rover.launch_date %></li>
+		<li>landing-date: <%= photo.rover.landing_date %></li>
+		<% if(photo.rover.status == "active") { %>
+			<li>mission-end: --- </li>
+		<% } else { %>
+			<li>mission-end: <%= manifest.max_date %></li>
+		<% } %>
+		<li>status: <%= photo.rover.status %></li>
+	<br>
+		<li><span class="underline">photo information</span></li>
+		<li>camera: <%= photo.camera.name %></li>
+		<li>earth-date: <%= photo.earth_date %></li>
+		<li>img-src: <span class="overflow"><a href="<%= photo.img_src %>"class="textLink">mars.nasa.gov</a></span></li>
+	</ul>
+</div>
