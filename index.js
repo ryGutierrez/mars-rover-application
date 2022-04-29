@@ -10,22 +10,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 const API_KEY = process.env['API_KEY']
 
-// var CURIOSITY_MANIFEST, PERSEVERANCE_MANIFEST, SPIRIT_MANIFEST, OPPORTUNITY_MANIFEST;
-
-// async function getManifests() {
-// 	CURIOSITY_MANIFEST = await fetchData('https://api.nasa.gov/mars-photos/api/v1/manifests/curiosity/?api_key=API_KEY');
-// 	PERSEVERANCE_MANIFEST = await fetchData('https://api.nasa.gov/mars-photos/api/v1/manifests/perseverance/?api_key=API_KEY');
-// 	SPIRIT_MANIFEST = await fetchData('https://api.nasa.gov/mars-photos/api/v1/manifests/spirit/?api_key=API_KEY');
-// 	OPPORTUNITY_MANIFEST = await fetchData('https://api.nasa.gov/mars-photos/api/v1/manifests/opportunity/?api_key=API_KEY');
-
-// 	// CURIOSITY_MANIFEST = CURIOSITY_MANIFEST.photo_manifest;
-// 	// PERSEVERANCE_MANIFEST = PERSEVERANCE_MANIFEST.photo_manifest;
-// 	// SPIRIT_MANIFEST = SPIRIT_MANIFEST.photo_manifest;
-// 	// OPPORTUNITY_MANIFEST = OPPORTUNITY_MANIFEST.photo_manifest;
-// }
-
-// getManifests();
-
 app.get('/', async (req, res) => {
 	res.render('home')
 });
